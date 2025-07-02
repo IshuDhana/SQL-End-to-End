@@ -1,0 +1,91 @@
+1.	Create Table into SQL
+CREATE TABLE Customers (
+  ID INT PRIMARY KEY,
+  First_Name VARCHAR(20),
+  Country VARCHAR(20),
+  Score INT
+);
+2.	Insert values into table created in SQL
+INSERT INTO Customers (ID,First_Name, Country, Score) VALUES 
+(1, 'Maria', 'Germany' , 350),
+(2, 'John', 'USA',900),
+(3, 'George', 'UK',750),
+(4, 'Martin','Germany',500),
+(5, 'Peter', 'USA',0)
+
+CREATE TABLE Orders (
+  Order_ID INT,
+  Customer_ID INT,
+  Order_Date DATE,
+  Sales INT
+);
+
+INSERT INTO Orders (Order_ID,Customer_ID, Order_Date, Sales) VALUES 
+(1001, 1, '2021-01-11',35),
+(1002, 2, '2021-04-05',15),
+(1003, 3, '2021-06-18',20),
+(1004, 6, '2021-018-31',10);
+3.	Select all values from the table
+SELECT * FROM Customers
+ID	First_Name	Country	Score
+1	Maria	Germany	350
+2	John	USA	900
+3	Georg	UK	750
+4	Martin	Germany	500
+5	Peter	USA	0
+SELECT * FROM Orders
+Order_ID	Customer_ID	Order_Date	Sales
+1001	1	2021-01-11	35
+1002	2	2021-04-05	15
+1003	3	2021-06-18	20
+1004	6	2021-08-31	10
+
+4.	Retrieve each customer’s name, country and score.
+SELECT 
+	First_name,
+    	Country,
+    	Score
+FROM 
+Customers
+First_Name	Country	Score
+Maria	Germany	350
+John	USA	900
+Georg	UK	750
+Martin	Germany	500
+Peter	USA	0
+
+5.	Retrieve data where score>500 from customer table, retrieve score not equal to 0
+SELECT 
+	First_name,
+   	 Country
+FROM 
+Customers
+WHERE Score != 0
+First_Name	Country
+Maria	Germany
+John	USA
+Georg	UK
+Martin	Germany
+
+6.	Retrieve Customer from Germany
+SELECT First_Name, Country
+FROM Customers
+WHERE Country = 'Germany'
+
+First_Name	Country
+Maria	               Germany
+Martin	               Germany
+7.	Order BY -  to sort data
+Retrieve date score in Ascending and descending from table customer 
+SELECT *
+FROM
+Customers
+ORDER BY Score
+
+ID	First_Name	Country	Score
+5	Peter	USA	0
+1	Maria	Germany	350
+4	Martin	Germany	500
+3	George	UK	750
+2	John	USA	900
+
